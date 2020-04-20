@@ -2,7 +2,7 @@
 
 A companion R Shiny application for the publication **Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. Remote Sensing. under-review**
 
-Intended to give pine plantation managers in the Southeastern US a simple route to assessing the LAI of their forests.
+Intended to give pine plantation managers in the Southeastern US a simple tool for assessing the LAI of their forests.
 
 A **live version** can be accessed via https://www.treepoet.com/s2lai.
 

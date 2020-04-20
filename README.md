@@ -10,7 +10,7 @@ A **live version** can be accessed via https://www.treepoet.com/s2lai.
 
 ### Features Fully Implemented:
 - Upload Sentinel-2 Level-2A Band 4 (red) & 8 (near-infrared)
-- Upload shapefiles, representing Area of Interest (AOI), e.g. either for single of multiple forest stands/sites; explore tabular contents.
+- Upload shapefiles, representing an Area of Interest (AOI), e.g. either for single of multiple forest stands/sites; explore tabular contents.
 - Calculate LAI for either the entire scene, or just clipped to the uploaded AOI.
 - Export/Download LAI Output, clipped to the AOI that was uploaded by the user or the entire scene.
 

@@ -19,7 +19,8 @@ A **live version** can be accessed via https://www.treepoet.com/s2lai.
 - Add an "Export as CSV" button to download the tabular contents of uploaded AOI, with LAI calculations included for each row/observation/polygon.
 - Add a "Save as New Shapefile" button to download the updated shapefile.
 - Rendered plot interactivity (e.g. dynamically updating values as user moves cursor across the plot)
-A stand-alone, local version is planned.
+- A **stand-alone, local desktop version** is planned.
+
 
 Please credit **Chris Cohrs** (treepoet.com) if you use or share this work. 
 

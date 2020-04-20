@@ -6,7 +6,7 @@ Intended to give pine plantation managers in the Southeastern US a simple route 
 
 A **live version** can be accessed via https://www.treepoet.com/s2lai.
 
-![s2LAI - Example Image](https://static.wixstatic.com/media/eae594_b3ca0228d2aa4755ac542b797152bcf4~mv2.png)
+![s2LAI - Example Image](https://static.wixstatic.com/media/eae594_1c856cfa53de4614b6c38b13d1bd506b~mv2.png)
 
 ### Features Fully Implemented:
 - Upload Sentinel-2 Level-2A Band 4 (red) & 8 (near-infrared)

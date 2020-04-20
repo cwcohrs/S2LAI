@@ -22,6 +22,6 @@ A **live version** can be accessed via https://www.treepoet.com/s2lai.
 - A **stand-alone, local desktop version** is planned.
 
 
-Please credit **Chris Cohrs** ([treepoet.com](treepoet.com)) if you use or share this work. 
+Please credit **Chris Cohrs** ([treepoet.com](https://www.treepoet.com)) if you use or share this work. 
 
 All inquiries can be sent to cohrs.xyz@gmail.com. 

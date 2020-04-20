@@ -5,3 +5,7 @@ A companion R Shiny application for the publication Cohrs, C.W., R.L. Cook, J.M.
 A live version can be accessed via https://www.treepoet.com/s2lai
 
 ![s2LAI - Example Image](https://static.wixstatic.com/media/eae594_b3ca0228d2aa4755ac542b797152bcf4~mv2.png)
+
+Please credit **Chris Cohrs** (treepoet.com) if you use or share this work. 
+
+All inquiries can be sent to cohrs.xyz@gmail.com. 

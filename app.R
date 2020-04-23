@@ -122,6 +122,10 @@ ui <- fluidPage(
       htmlOutput("linebreak2"),
       p("Note: Depending on dataset filesize, it may take a minute for the download to begin."),
       htmlOutput("linebreak3"),
+      p("Need Sentinel-2 data and don't know where to get it?", a("Click here for a walkthrough.",
+                                                            href = "https://eae59453-626c-435a-aeb7-8b2466da9365.usrfiles.com/ugd/eae594_17089add367c437f9bd331ac98a815f6.pdf"
+      )),
+      htmlOutput("linebreak4"),
       p("For more details on the model used, please see", a("Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. Remote Sensing. under-review.",
                                                             href = "https://treepoet.com"
       ), "(temporarily redirecting)"),
@@ -137,8 +141,8 @@ ui <- fluidPage(
     mainPanel(
       
       tabsetPanel(type = "tabs",
-                  tabPanel("LAI Plot", htmlOutput("linebreak4"), plotOutput("uploadmapclip") %>% withSpinner(color = "#0dc5c1"), plotOutput("b8b4_cohrsEq_done") %>% withSpinner(color = "#0dc5c1")),
-                  tabPanel("AOI Plot", htmlOutput("linebreak5"), plotOutput("uploadmapmap"), dataTableOutput('uploadmaptable'), verbatimTextOutput("uploadmapsummary"), verbatimTextOutput("uploadmapextent")),
+                  tabPanel("LAI Plot", htmlOutput("linebreak5"), plotOutput("uploadmapclip") %>% withSpinner(color = "#0dc5c1"), plotOutput("b8b4_cohrsEq_done") %>% withSpinner(color = "#0dc5c1")),
+                  tabPanel("AOI Plot", htmlOutput("linebreak6"), plotOutput("uploadmapmap"), dataTableOutput('uploadmaptable'), verbatimTextOutput("uploadmapsummary"), verbatimTextOutput("uploadmapextent")),
                   tabPanel("Band Input Plots", plotOutput("Band_4"), p("Above: Band 4 (Red)"), plotOutput("Band_8"), p("Above: Band 8 (NIR)")),
                   tabPanel("Summary Tables", verbatimTextOutput("b8b4_cohrsEq_done_summary"))
       )
@@ -278,6 +282,9 @@ server <- function(input, output) {
     paste0("</p>")
   })
   output$linebreak5 <- renderText({
+    paste0("</p>")
+  })
+  output$linebreak6 <- renderText({
     paste0("</p>")
   })
   

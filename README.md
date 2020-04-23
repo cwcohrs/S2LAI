@@ -21,6 +21,7 @@ A **live version** can be accessed via https://www.treepoet.com/s2lai.
 - Rendered plot interactivity (e.g. dynamically updating values as user moves cursor across the plot)
 - A **stand-alone, local desktop version** is planned.
 
+Need Sentinel-2 data and don't know where to get it? [Click here for a walkthrough.](https://eae59453-626c-435a-aeb7-8b2466da9365.usrfiles.com/ugd/eae594_17089add367c437f9bd331ac98a815f6.pdf)
 
 Please credit **Chris Cohrs** ([treepoet.com](https://www.treepoet.com)) if you use or share this work. 
 

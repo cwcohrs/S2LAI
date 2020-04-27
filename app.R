@@ -57,6 +57,12 @@ cohrs_LAI <- function(inFileb4, inFileb8) {
   
 }
 
+match_crs <- function(inFileb4, inFileAOI) {
+  #get the CRS of inFileb4, and assign it to a new object
+  spTransform(inFileAOI, crs(raster(inFileb4)))
+  #assign CRS to inFileAOI 
+}
+
 clip_raster_to_aoi <- function(inFileb4, inFileb8, inFileAOI) {
   
   inFileb4 <- raster(inFileb4)
@@ -123,7 +129,7 @@ ui <- fluidPage(
       p("Note: Depending on dataset filesize, it may take a minute for the download to begin."),
       htmlOutput("linebreak3"),
       p("Need Sentinel-2 data and don't know where to get it?", a("Click here for a walkthrough.",
-                                                            href = "https://eae59453-626c-435a-aeb7-8b2466da9365.usrfiles.com/ugd/eae594_17089add367c437f9bd331ac98a815f6.pdf"
+                                                                  href = "https://eae59453-626c-435a-aeb7-8b2466da9365.usrfiles.com/ugd/eae594_17089add367c437f9bd331ac98a815f6.pdf"
       )),
       htmlOutput("linebreak4"),
       p("For more details on the model used, please see", a("Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. Remote Sensing. under-review.",
@@ -196,29 +202,6 @@ server <- function(input, output) {
   
   # START OF SHAPEFILE WORK
   
-  # uploadmapcombo <- eventReactive(input$renderCombo,{
-  #   if (is.null(rv$map))
-  #     return(NULL)
-  #   plot(cohrs_LAI(input$filerasterS2B4$datapath, input$filerasterS2B8$datapath))
-  #   plot(rv$map, add = TRUE)
-  # })
-  # 
-  # output$uploadmapcombo <- renderPlot({
-  #   uploadmapcombo()
-  # })
-  
-  ##
-  uploadmapclip <- eventReactive(input$renderClip,{
-    if (is.null(rv$map))
-      return(NULL)
-    plot(crop(cohrs_LAI(input$filerasterS2B4$datapath, input$filerasterS2B8$datapath), extent(rv$map)))
-    plot(rv$map, add = TRUE)
-  })
-  
-  output$uploadmapclip <- renderPlot({
-    uploadmapclip()
-  })
-  ##
   
   output$uploadmapmap <- renderPlot({
     if (is.null(rv$map))
@@ -262,10 +245,38 @@ server <- function(input, output) {
     #map <- readShapePoly(paste(uploaddirectory, shpdf$name[grep(pattern="*.shp", shpdf$name)], sep="/"),  delete_null_obj=TRUE)
     #reads the file that finishes with .shp using $ at the end: grep(pattern="*.shp$", shpdf$name)
     map <- readOGR(paste(uploaddirectory, shpdf$name[grep(pattern = "*.shp$", shpdf$name)], sep = "/"))#,  delete_null_obj=TRUE)
-    # map <- spTransform(map, CRS("+proj=utm +zone=16 +ellps=WGS84 +units=m +no_defs"))
+    map <- spTransform(map, CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"))
     rv$map <- map
     
   })  
+  
+  ##
+  uploadmapclip <- eventReactive(input$renderClip,{
+    if (is.null(rv$map))
+      return(NULL)
+    shpdf <- input$filevector
+    if (is.null(shpdf)) {
+      return()
+    }
+    previouswd <- getwd()
+    uploaddirectory <- dirname(shpdf$datapath[1])
+    setwd(uploaddirectory)
+    for (i in 1:nrow(shpdf)) {
+      file.rename(shpdf$datapath[i], shpdf$name[i])
+    }
+    setwd(previouswd)
+    
+    map <- readOGR(paste(uploaddirectory, shpdf$name[grep(pattern = "*.shp$", shpdf$name)], sep = "/"))#,  delete_null_obj=TRUE)
+    map <- spTransform(map, crs(raster(input$filerasterS2B4$datapath)))
+    rv$map <- map
+    plot(crop(cohrs_LAI(input$filerasterS2B4$datapath, input$filerasterS2B8$datapath), extent(rv$map)))
+    plot(rv$map, add = TRUE)
+  })
+  
+  output$uploadmapclip <- renderPlot({
+    uploadmapclip()
+  })
+  ##
   
   # END OF SHAPEFILE WORK
   
@@ -322,6 +333,21 @@ server <- function(input, output) {
           shiny::incProgress(1/10)
           Sys.sleep(1)
           shiny::incProgress(5/10)
+          shpdf <- input$filevector
+          if (is.null(shpdf)) {
+            return()
+          }
+          previouswd <- getwd()
+          uploaddirectory <- dirname(shpdf$datapath[1])
+          setwd(uploaddirectory)
+          for (i in 1:nrow(shpdf)) {
+            file.rename(shpdf$datapath[i], shpdf$name[i])
+          }
+          setwd(previouswd)
+          
+          map <- readOGR(paste(uploaddirectory, shpdf$name[grep(pattern = "*.shp$", shpdf$name)], sep = "/"))#,  delete_null_obj=TRUE)
+          map <- spTransform(map, crs(raster(input$filerasterS2B4$datapath)))
+          rv$map <- map
           r <- crop(cohrs_LAI(input$filerasterS2B4$datapath, input$filerasterS2B8$datapath), extent(rv$map))
           res <- writeRaster(r, filename = file, format = "GTiff", overwrite = TRUE)
         }

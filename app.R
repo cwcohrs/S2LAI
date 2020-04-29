@@ -3,7 +3,7 @@
 #          Access via https://treepoet.com/s2lai
 # 
 #          For more details on the model used to calculate LAI, please see:  
-#          Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. Remote Sensing. under-review.
+#          Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. Remote Sensing. Accepted 27 April 2020.
 #
 # Objectives: 
 # 1. Allow users to calculate Leaf Area Index on-the-fly when supplied with Sentinel-2 bands 4 and 8 (red and NIR).

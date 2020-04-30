@@ -1,6 +1,6 @@
 # Calculate Leaf Area Index from Sentinel-2 Imagery
 
-A companion R Shiny application for the publication **Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. *Remote Sensing*. 12, 1406. doi.org/10.3390/rs12091406**
+A companion R Shiny application for the publication **Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. *Remote Sensing*. 12, 1406. [link to article](https://doi.org/10.3390/rs12091406)**
 
 Intended to give pine plantation managers in the Southeastern US a simple tool for assessing the LAI of their forests.
 

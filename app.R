@@ -3,7 +3,7 @@
 #          Access via https://treepoet.com/s2lai
 # 
 #          For more details on the model used to calculate LAI, please see:  
-#          Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. Remote Sensing. Accepted 27 April 2020.
+#          Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. Remote Sensing. under-review.
 #
 # Objectives: 
 # 1. Allow users to calculate Leaf Area Index on-the-fly when supplied with Sentinel-2 bands 4 and 8 (red and NIR).
@@ -12,7 +12,7 @@
 # 4. 
 #
 #
-# Date last modified: 27 April 2020
+# Date last modified: 30 April 2020
 #             Author: Chris Cohrs | cohrs.xyz@gmail.com | treepoet.com
 #
 #############
@@ -132,9 +132,9 @@ ui <- fluidPage(
                                                                   href = "https://eae59453-626c-435a-aeb7-8b2466da9365.usrfiles.com/ugd/eae594_17089add367c437f9bd331ac98a815f6.pdf"
       )),
       htmlOutput("linebreak4"),
-      p("For more details on the model used, please see", a("Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. Remote Sensing. under-review.",
-                                                            href = "https://treepoet.com"
-      ), "(temporarily redirecting)"),
+      p("For more details on the model used, please see", a("Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. Remote Sensing. Remote Sensing. 12, 1406.",
+                                                            href = "https://doi.org/10.3390/rs12091406"
+      )),
       tags$a(
         href = "https://treepoet.com", 
         tags$img(src = "treepoet_v2.png", 

@@ -128,8 +128,10 @@ ui <- fluidPage(
       htmlOutput("linebreak2"),
       p("Note: Depending on dataset filesize, it may take a minute for the download to begin."),
       htmlOutput("linebreak3"),
-      p("Need Sentinel-2 data and don't know where to get it?", a("Click here for a walkthrough.",
+      p("Need Sentinel-2 data and don't know where to get it?", a("Click here for a text (PDF) walkthrough",
                                                                   href = "https://eae59453-626c-435a-aeb7-8b2466da9365.usrfiles.com/ugd/eae594_17089add367c437f9bd331ac98a815f6.pdf"
+      ), "or", a("click here for a video walkthrough.",
+               href = "https://youtu.be/9DLk5y2VfQM"
       )),
       htmlOutput("linebreak4"),
       p("For more details on the model used, please see", a("Cohrs, C.W., R.L. Cook, J.M. Gray, and T.J. Albaugh. (2020). Sentinel-2 Leaf Area Index Estimation for Pine Plantations in the Southeastern United States. Remote Sensing. Remote Sensing. 12, 1406.",
